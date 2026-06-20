@@ -31,7 +31,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="access-pending">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +51,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:title" content={`${site.title} | ${site.publisher}`} />
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <script src="/access-gate.js" defer></script>
   </head>
   <body>
     <main class="page-shell" aria-labelledby="site-title">

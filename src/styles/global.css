@@ -47,6 +47,14 @@ body::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.56), transparent 78%);
 }
 
+html.access-pending body {
+  overflow: hidden;
+}
+
+html.access-pending .page-shell {
+  visibility: hidden;
+}
+
 a {
   color: inherit;
 }
@@ -127,6 +135,120 @@ a {
 .site-nav a[aria-current="page"]::after {
   opacity: 0.82;
   transform: scaleX(1);
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(215, 155, 79, 0.16), transparent 23rem),
+    radial-gradient(circle at 22% 18%, rgba(110, 31, 36, 0.22), transparent 24rem),
+    rgba(8, 7, 6, 0.98);
+}
+
+.access-gate::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
+}
+
+.access-panel {
+  position: relative;
+  width: min(100%, 520px);
+  border-top: 1px solid rgba(215, 155, 79, 0.46);
+  border-bottom: 1px solid rgba(246, 239, 226, 0.12);
+  padding: clamp(28px, 6vw, 48px) 0;
+  text-align: left;
+}
+
+.access-kicker,
+.access-form label {
+  color: var(--dim);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.access-panel h1 {
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 11vw, 5.8rem);
+  font-weight: 500;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.access-copy {
+  max-width: 420px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.04rem, 3vw, 1.22rem);
+  line-height: 1.58;
+}
+
+.access-form {
+  margin-top: 28px;
+}
+
+.access-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.access-row input,
+.access-row button {
+  min-height: 44px;
+  border: 1px solid rgba(215, 155, 79, 0.42);
+  border-radius: 0;
+  font: inherit;
+}
+
+.access-row input {
+  width: 100%;
+  background: rgba(246, 239, 226, 0.06);
+  color: var(--ink);
+  padding: 0 12px;
+}
+
+.access-row input:focus {
+  outline: 2px solid rgba(215, 155, 79, 0.36);
+  outline-offset: 2px;
+}
+
+.access-row button {
+  background: rgba(215, 155, 79, 0.15);
+  color: var(--ink);
+  cursor: pointer;
+  letter-spacing: 0.12em;
+  padding: 0 16px;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.access-row button:disabled {
+  cursor: wait;
+  opacity: 0.64;
+}
+
+.access-message {
+  min-height: 1.4em;
+  margin: 12px 0 0;
+  color: var(--ember);
+  font-size: 0.86rem;
 }
 
 .hero {
@@ -390,11 +512,18 @@ a {
   background: linear-gradient(90deg, var(--wine), var(--ember));
 }
 
+.archive-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+
 .archive-button {
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-  margin-top: 22px;
   border: 1px solid rgba(215, 155, 79, 0.46);
   padding: 0 16px;
   color: var(--ink);
@@ -407,6 +536,13 @@ a {
 .archive-button[aria-disabled="true"] {
   color: var(--dim);
   cursor: not-allowed;
+}
+
+.file-meta {
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
 }
 
 .future-shelves {
@@ -471,6 +607,10 @@ a {
 
   .teaser {
     padding-left: 16px;
+  }
+
+  .access-row {
+    grid-template-columns: 1fr;
   }
 
   .archive-shell {

@@ -1,4 +1,6 @@
 ---
+import { existsSync, statSync } from "node:fs";
+import { join } from "node:path";
 import "../styles/global.css";
 
 const site = {
@@ -18,8 +20,8 @@ const archiveItems = [
     description:
       "The first recovered volume in the Saltines record. Friendship, firelight, and the earliest shape of the strange history that refuses to stay buried.",
     action: "Read / Download",
-    href: "#",
-    pending: true
+    href: "/books/The-Saltines.pdf",
+    filePath: "public/books/The-Saltines.pdf"
   },
   {
     sequence: "Book 2",
@@ -28,8 +30,8 @@ const archiveItems = [
     description:
       "The second entry in the archive, following the aftermath, reprisals, and unfinished business that carried the legend forward.",
     action: "Read / Download",
-    href: "#",
-    pending: true
+    href: "/books/The-Ritz-Strike-Back.pdf",
+    filePath: "public/books/The-Ritz-Strike-Back.pdf"
   },
   {
     sequence: "Book 3",
@@ -52,12 +54,29 @@ const futureCollections = [
   "Bonus Content"
 ];
 
+function formatFileSize(filePath: string) {
+  const absolutePath = join(process.cwd(), filePath);
+
+  if (!existsSync(absolutePath)) {
+    return null;
+  }
+
+  const bytes = statSync(absolutePath).size;
+  const megabytes = bytes / 1024 / 1024;
+
+  if (megabytes >= 1) {
+    return `${megabytes.toFixed(1)} MB`;
+  }
+
+  return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="access-pending">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -77,6 +96,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:title" content={`${site.title} | ${site.publisher}`} />
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <script src="/access-gate.js" defer></script>
   </head>
   <body>
     <main class="page-shell archive-shell" aria-labelledby="library-title">
@@ -142,13 +162,14 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
                   </div>
                 )}
                 {item.action && (
-                  <a
-                    class="archive-button"
-                    href={item.href}
-                    aria-disabled={item.pending ? "true" : "false"}
-                  >
-                    {item.action}
-                  </a>
+                  <div class="archive-action">
+                    <a class="archive-button" href={item.href} target="_blank" rel="noopener">
+                      {item.action}
+                    </a>
+                    <span class="file-meta">
+                      PDF{item.filePath && formatFileSize(item.filePath) ? ` · ${formatFileSize(item.filePath)}` : ""}
+                    </span>
+                  </div>
                 )}
               </div>
             </article>

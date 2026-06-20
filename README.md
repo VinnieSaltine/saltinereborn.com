@@ -18,6 +18,16 @@ Production domain: `https://www.saltinereborn.com`
 
 No backend, accounts, comments, message board, admin panel, notifications, or database.
 
+## Private Beta Gate
+
+The site includes a lightweight password gate for invited readers. It uses a Vercel serverless function at `api/verify-password.js` and checks this environment variable:
+
+```bash
+SITE_PASSWORD=your-private-reader-password
+```
+
+Successful access is remembered in browser storage. This is a private beta gate, not account-level security.
+
 ## Local Preview
 
 ```bash
