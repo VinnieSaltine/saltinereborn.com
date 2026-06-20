@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder cover for The Saltines</title>
+  <desc id="desc">A dark archive-style placeholder cover.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1a1410"/>
+      <stop offset="0.55" stop-color="#090807"/>
+      <stop offset="1" stop-color="#281316"/>
+    </linearGradient>
+    <radialGradient id="lamp" cx="50%" cy="34%" r="48%">
+      <stop offset="0" stop-color="#d79b4f" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#d79b4f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1200" fill="url(#paper)"/>
+  <rect x="54" y="64" width="692" height="1072" fill="none" stroke="#d79b4f" stroke-opacity="0.36" stroke-width="3"/>
+  <rect x="83" y="94" width="634" height="1012" fill="none" stroke="#f6efe2" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="400" cy="404" r="300" fill="url(#lamp)"/>
+  <path d="M160 736h480M200 784h400M244 832h312" stroke="#d79b4f" stroke-opacity="0.5" stroke-width="7"/>
+  <text x="400" y="194" fill="#cbbd9d" font-family="Georgia, serif" font-size="42" letter-spacing="12" text-anchor="middle">BOOK I</text>
+  <text x="400" y="472" fill="#f6efe2" font-family="Georgia, serif" font-size="106" font-weight="700" text-anchor="middle">THE</text>
+  <text x="400" y="596" fill="#f6efe2" font-family="Georgia, serif" font-size="108" font-weight="700" text-anchor="middle">SALTINES</text>
+  <text x="400" y="1018" fill="#d79b4f" font-family="Georgia, serif" font-size="40" letter-spacing="9" text-anchor="middle">ARCHIVE EDITION</text>
+</svg>

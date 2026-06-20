@@ -1,0 +1,105 @@
+---
+import "../styles/global.css";
+
+const site = {
+  title: "The Saltine Reborn",
+  author: "Matthew T. Caffrey",
+  publisher: "Hallowfield Publishing Group",
+  description:
+    "The story continues in The Saltine Reborn, a dark cinematic fantasy serial by Matthew T. Caffrey from Hallowfield Publishing Group.",
+  heroMessage: "THE STORY CONTINUES",
+  teaser: [
+    "Twenty years after the bonfire, Vinnie is alive.",
+    "Older now. Alone. Living in Rome under a name he never wanted.",
+    "Farloh.",
+    "He drinks coffee near the Villa Borghese, watches the bougainvillea climb the old stone walls, and tries very hard not to become the thing he sacrificed himself to contain.",
+    "Across the ocean, William wakes from a dream.",
+    "He has never been to Italy.",
+    "But he saw Rome.",
+    "He saw the flowers.",
+    "He saw the old man.",
+    "And for the first time in his life, he knows the truth.",
+    "His father is still alive."
+  ],
+  cover: "/assets/saltine-cover.jpg",
+  logo: "/assets/hallowfield-logo-gold.png",
+  socialImage: "/assets/social-preview.jpg"
+};
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title} | {site.publisher}</title>
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#080706" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={`${site.title} | ${site.publisher}`} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:image" content={socialImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={`${site.title} | ${site.publisher}`} />
+    <meta name="twitter:description" content={site.description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+  </head>
+  <body>
+    <main class="page-shell" aria-labelledby="site-title">
+      <header class="masthead" aria-label="Publisher">
+        <div class="imprint">
+          <img
+            class="publisher-logo"
+            src={site.logo}
+            width="449"
+            height="396"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
+          <span>{site.publisher}</span>
+        </div>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/" aria-current="page">Teaser</a>
+          <a href="/library/">Library</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <figure class="cover-wrap">
+          <img
+            class="cover"
+            src={site.cover}
+            alt="Cover art for The Saltine Reborn by Matthew T. Caffrey"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="copy">
+          <p class="kicker">{site.heroMessage}</p>
+          <h1 class="title" id="site-title">{site.title}</h1>
+          <p class="author">by {site.author}</p>
+          <p class="publisher-line">{site.publisher}</p>
+          <div class="teaser">
+            {site.teaser.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          <p class="coming-soon">Chapter One Coming Soon</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>{site.publisher}</span>
+        <span class="footer-line">Fiction from the threshold</span>
+      </footer>
+    </main>
+  </body>
+</html>
