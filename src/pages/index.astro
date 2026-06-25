@@ -28,8 +28,8 @@ const site = {
 
 const release = {
   releaseAt: "2026-06-26T00:00:00-04:00",
-  epilogueHref: "/books/The-Saltine-Reborn-Epilogue.pdf",
-  chapterOneHref: "/books/The-Saltine-Reborn-Chapter-1.pdf",
+  prologueHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf",
+  chapterOneHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
   saltinesHref: "/books/The-Saltines.pdf",
   ritzHref: "/books/The-Ritz-Strike-Back.pdf"
 };
@@ -116,7 +116,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
         <div>
           <p class="kicker">The Saltine Reborn</p>
           <h2 id="home-countdown-title">Release Countdown</h2>
-          <p class="release-note">Epilogue and Chapter One release at midnight.</p>
+          <p class="release-note">Prologue and Chapter One release at midnight.</p>
         </div>
 
         <div class="countdown-state" data-countdown-state>
@@ -155,13 +155,13 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
         <div class="current-release-copy">
           <p class="kicker">Current Release</p>
           <h1 class="title" id="current-release-title">{site.title}</h1>
-          <p class="author">Epilogue + Chapter One</p>
+          <p class="author">Prologue + Chapter One</p>
           <p class="release-note">
             The newest Saltine Reborn release is available now for invited readers.
           </p>
           <div class="release-actions current-release-actions">
-            <a class="archive-button" href={release.epilogueHref} target="_blank" rel="noopener">
-              Read Epilogue
+            <a class="archive-button" href={release.prologueHref} target="_blank" rel="noopener">
+              Read Prologue
             </a>
             <a class="archive-button" href={release.chapterOneHref} target="_blank" rel="noopener">
               Read Chapter One
