@@ -17,7 +17,7 @@ export default function handler(request, response) {
     return;
   }
 
-  const configuredPassword = process.env.SITE_PASSWORD;
+  const configuredPassword = process.env.SITE_PASSWORD || process.env.SALTINE_REBORN_PASSWORD;
 
   if (!configuredPassword) {
     response.status(503).json({

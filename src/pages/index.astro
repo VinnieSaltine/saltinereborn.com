@@ -26,6 +26,14 @@ const site = {
   socialImage: "/assets/social-preview.jpg"
 };
 
+const release = {
+  releaseAt: "2026-06-26T00:00:00-04:00",
+  epilogueHref: "/books/The-Saltine-Reborn-Epilogue.pdf",
+  chapterOneHref: "/books/The-Saltine-Reborn-Chapter-1.pdf",
+  saltinesHref: "/books/The-Saltines.pdf",
+  ritzHref: "/books/The-Ritz-Strike-Back.pdf"
+};
+
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
 ---
@@ -52,6 +60,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
+    <script src="/chapter-countdown.js" defer></script>
   </head>
   <body>
     <main class="page-shell" aria-labelledby="site-title">
@@ -74,7 +83,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
         </nav>
       </header>
 
-      <section class="hero">
+      <section class="hero" data-before-release>
         <figure class="cover-wrap">
           <img
             class="cover"
@@ -95,6 +104,84 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
           </div>
           <p class="coming-soon">Chapter One Coming Soon</p>
         </div>
+      </section>
+
+      <section
+        class="release-countdown home-countdown"
+        aria-labelledby="home-countdown-title"
+        data-release-at={release.releaseAt}
+        data-home-release
+        data-before-release
+      >
+        <div>
+          <p class="kicker">The Saltine Reborn</p>
+          <h2 id="home-countdown-title">Release Countdown</h2>
+          <p class="release-note">Epilogue and Chapter One release at midnight.</p>
+        </div>
+
+        <div class="countdown-state" data-countdown-state>
+          <div class="countdown-grid" aria-live="polite">
+            <span>
+              <strong data-countdown-days>--</strong>
+              <small>Days</small>
+            </span>
+            <span>
+              <strong data-countdown-hours>--</strong>
+              <small>Hours</small>
+            </span>
+            <span>
+              <strong data-countdown-minutes>--</strong>
+              <small>Minutes</small>
+            </span>
+            <span>
+              <strong data-countdown-seconds>--</strong>
+              <small>Seconds</small>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="current-release" aria-labelledby="current-release-title" hidden data-after-release>
+        <figure class="cover-wrap">
+          <img
+            class="cover"
+            src={site.cover}
+            alt="Cover art for The Saltine Reborn by Matthew T. Caffrey"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="current-release-copy">
+          <p class="kicker">Current Release</p>
+          <h1 class="title" id="current-release-title">{site.title}</h1>
+          <p class="author">Epilogue + Chapter One</p>
+          <p class="release-note">
+            The newest Saltine Reborn release is available now for invited readers.
+          </p>
+          <div class="release-actions current-release-actions">
+            <a class="archive-button" href={release.epilogueHref} target="_blank" rel="noopener">
+              Read Epilogue
+            </a>
+            <a class="archive-button" href={release.chapterOneHref} target="_blank" rel="noopener">
+              Read Chapter One
+            </a>
+          </div>
+          <div class="release-actions secondary-release-actions">
+            <a class="archive-button" href="/library/">Library</a>
+            <a class="archive-button" href={release.saltinesHref} target="_blank" rel="noopener">
+              The Saltines
+            </a>
+            <a class="archive-button" href={release.ritzHref} target="_blank" rel="noopener">
+              The Ritz Strike Back
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="previous-releases" hidden data-after-release>
+        <p class="kicker">Previous Releases</p>
+        <p>No previous chapters yet.</p>
       </section>
 
       <footer class="footer">

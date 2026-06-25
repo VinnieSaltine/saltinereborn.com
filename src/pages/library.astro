@@ -46,6 +46,16 @@ const archiveItems = [
   }
 ];
 
+const chapterOneRelease = {
+  title: "The Saltine Reborn",
+  label: "The Saltine Reborn Release Countdown",
+  releaseAt: "2026-06-26T00:00:00-04:00",
+  chapterHref: "/books/The-Saltine-Reborn-Chapter-1.pdf",
+  chapterFilePath: "public/books/The-Saltine-Reborn-Chapter-1.pdf",
+  epilogueHref: "/books/The-Saltine-Reborn-Epilogue.pdf",
+  epilogueFilePath: "public/books/The-Saltine-Reborn-Epilogue.pdf"
+};
+
 const futureCollections = [
   "Side Stories",
   "Character Guides",
@@ -73,6 +83,8 @@ function formatFileSize(filePath: string) {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
+const chapterOneSize = formatFileSize(chapterOneRelease.chapterFilePath);
+const epilogueSize = formatFileSize(chapterOneRelease.epilogueFilePath);
 ---
 
 <!doctype html>
@@ -97,6 +109,7 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
+    <script src="/chapter-countdown.js" defer></script>
   </head>
   <body>
     <main class="page-shell archive-shell" aria-labelledby="library-title">
@@ -126,6 +139,64 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
           Earlier volumes, recovered fragments, and the living serial record of
           a universe still opening its locked rooms.
         </p>
+      </section>
+
+      <section
+        class="release-countdown"
+        aria-labelledby="chapter-countdown-title"
+        data-release-at={chapterOneRelease.releaseAt}
+      >
+        <div>
+          <p class="kicker">{chapterOneRelease.title}</p>
+          <h2 id="chapter-countdown-title">{chapterOneRelease.label}</h2>
+          <p class="release-note">Epilogue and Chapter One release at midnight.</p>
+        </div>
+
+        <div class="countdown-state" data-countdown-state>
+          <div class="countdown-grid" aria-live="polite">
+            <span>
+              <strong data-countdown-days>--</strong>
+              <small>Days</small>
+            </span>
+            <span>
+              <strong data-countdown-hours>--</strong>
+              <small>Hours</small>
+            </span>
+            <span>
+              <strong data-countdown-minutes>--</strong>
+              <small>Minutes</small>
+            </span>
+            <span>
+              <strong data-countdown-seconds>--</strong>
+              <small>Seconds</small>
+            </span>
+          </div>
+        </div>
+
+        <div class="release-actions">
+          <a
+            class="archive-button"
+            href={chapterOneRelease.epilogueHref}
+            target="_blank"
+            rel="noopener"
+            hidden
+            data-release-link
+          >
+            Read Epilogue
+            <span class="button-meta">PDF{epilogueSize ? ` · ${epilogueSize}` : ""}</span>
+          </a>
+          <a
+            class="archive-button chapter-one-link"
+            href={chapterOneRelease.chapterHref}
+            target="_blank"
+            rel="noopener"
+            hidden
+            data-release-link
+          >
+            Read Chapter One
+            <span class="button-meta">PDF{chapterOneSize ? ` · ${chapterOneSize}` : ""}</span>
+          </a>
+        </div>
       </section>
 
       <section class="archive-grid" aria-label="Collected works">

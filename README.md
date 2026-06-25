@@ -26,6 +26,8 @@ The site includes a lightweight password gate for invited readers. It uses a Ver
 SITE_PASSWORD=your-private-reader-password
 ```
 
+The live Vercel project also supports `SALTINE_REBORN_PASSWORD` as a fallback.
+
 Successful access is remembered in browser storage. This is a private beta gate, not account-level security.
 
 ## Local Preview
