@@ -46,7 +46,6 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
-    <script src="/discussion.js" defer></script>
   </head>
   <body>
     <main class="page-shell chapter-shell" aria-labelledby="chapter-title">
@@ -93,57 +92,6 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
           </div>
         </div>
       </article>
-
-      <section
-        class="discussion"
-        aria-labelledby="discussion-title"
-        data-chapter-discussion
-        data-chapter-slug={chapter.slug}
-      >
-        <div class="discussion-heading">
-          <h2 id="discussion-title">Discussion</h2>
-        </div>
-
-        <div class="discussion-auth" data-discussion-auth>
-          <p class="discussion-message" data-auth-message>
-            Sign in with your reader name and password to join the discussion.
-          </p>
-          <form class="discussion-login" data-login-form>
-            <label>
-              Reader name
-              <input name="name" autocomplete="username" required />
-            </label>
-            <label>
-              Password
-              <input name="password" type="password" autocomplete="current-password" required />
-            </label>
-            <button type="submit">Enter Discussion</button>
-          </form>
-        </div>
-
-        <div class="discussion-room" data-discussion-room hidden>
-          <div class="discussion-reader">
-            <span data-reader-label></span>
-            <button type="button" data-reader-logout>Switch reader</button>
-          </div>
-
-          <ol class="comment-list" data-comment-list></ol>
-
-          <form class="comment-form" data-comment-form>
-            <label for={`comment-${chapter.slug}`}>Add a comment</label>
-            <textarea
-              id={`comment-${chapter.slug}`}
-              name="body"
-              rows="5"
-              maxlength="2000"
-              placeholder="Leave a comment..."
-              required
-            ></textarea>
-            <button type="submit">Post Comment</button>
-            <p class="discussion-message" data-comment-message></p>
-          </form>
-        </div>
-      </section>
 
       <footer class="footer">
         <span>{site.publisher}</span>
