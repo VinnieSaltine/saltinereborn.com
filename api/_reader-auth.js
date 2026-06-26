@@ -15,6 +15,13 @@ function parseReaders() {
   }
 }
 
+export function getReaderConfigStatus() {
+  return {
+    hasReadersEnv: Boolean(process.env.READING_ROOM_READERS),
+    readerCount: parseReaders().length
+  };
+}
+
 function getTokenSecret() {
   return (
     process.env.READING_ROOM_TOKEN_SECRET ||

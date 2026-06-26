@@ -1,4 +1,9 @@
-import { findReader, signReaderToken, verifyReaderPassword } from "./_reader-auth.js";
+import {
+  findReader,
+  getReaderConfigStatus,
+  signReaderToken,
+  verifyReaderPassword
+} from "./_reader-auth.js";
 
 export default function handler(request, response) {
   response.setHeader("Cache-Control", "no-store");
@@ -19,7 +24,16 @@ export default function handler(request, response) {
     return;
   }
 
-  const reader = findReader(body.name);
+  const submittedName = String(body.name || "").trim();
+  const reader = findReader(submittedName);
+  const readerConfig = getReaderConfigStatus();
+
+  console.info("[reading-room] reader login attempt", {
+    hasReadersEnv: readerConfig.hasReadersEnv,
+    readerCount: readerConfig.readerCount,
+    submittedName,
+    readerMatched: Boolean(reader)
+  });
 
   if (!reader || !verifyReaderPassword(reader, body.password)) {
     response.status(401).json({
