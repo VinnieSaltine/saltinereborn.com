@@ -6,28 +6,13 @@ const site = {
   author: "Matthew T. Caffrey",
   publisher: "Hallowfield Publishing Group",
   description:
-    "The story continues in The Saltine Reborn, a dark cinematic fantasy serial by Matthew T. Caffrey from Hallowfield Publishing Group.",
-  heroMessage: "THE STORY CONTINUES",
-  teaser: [
-    "Twenty years after the bonfire, Vinnie is alive.",
-    "Older now. Alone. Living in Rome under a name he never wanted.",
-    "Farloh.",
-    "He drinks coffee near the Villa Borghese, watches the bougainvillea climb the old stone walls, and tries very hard not to become the thing he sacrificed himself to contain.",
-    "Across the ocean, William wakes from a dream.",
-    "He has never been to Italy.",
-    "But he saw Rome.",
-    "He saw the flowers.",
-    "He saw the old man.",
-    "And for the first time in his life, he knows the truth.",
-    "His father is still alive."
-  ],
+    "Begin reading The Saltine Reborn, a dark cinematic fantasy serial by Matthew T. Caffrey from Hallowfield Publishing Group.",
   cover: "/assets/saltine-cover.jpg",
   logo: "/assets/hallowfield-logo-gold.png",
   socialImage: "/assets/social-preview.jpg"
 };
 
 const release = {
-  releaseAt: "2026-06-26T00:00:00-04:00",
   prologueHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf",
   chapterOneHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
   saltinesHref: "/books/The-Saltines.pdf",
@@ -60,7 +45,6 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
-    <script src="/chapter-countdown.js" defer></script>
   </head>
   <body>
     <main class="page-shell" aria-labelledby="site-title">
@@ -78,70 +62,12 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
           <span>{site.publisher}</span>
         </div>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/" aria-current="page">Teaser</a>
+          <a href="/" aria-current="page">Reading Room</a>
           <a href="/library/">Library</a>
         </nav>
       </header>
 
-      <section class="hero" data-before-release>
-        <figure class="cover-wrap">
-          <img
-            class="cover"
-            src={site.cover}
-            alt="Cover art for The Saltine Reborn by Matthew T. Caffrey"
-            loading="eager"
-            decoding="async"
-          />
-        </figure>
-
-        <div class="copy">
-          <p class="kicker">{site.heroMessage}</p>
-          <h1 class="title" id="site-title">{site.title}</h1>
-          <p class="author">by {site.author}</p>
-          <p class="publisher-line">{site.publisher}</p>
-          <div class="teaser">
-            {site.teaser.map((paragraph) => <p>{paragraph}</p>)}
-          </div>
-          <p class="coming-soon">Chapter One Coming Soon</p>
-        </div>
-      </section>
-
-      <section
-        class="release-countdown home-countdown"
-        aria-labelledby="home-countdown-title"
-        data-release-at={release.releaseAt}
-        data-home-release
-        data-before-release
-      >
-        <div>
-          <p class="kicker">The Saltine Reborn</p>
-          <h2 id="home-countdown-title">Release Countdown</h2>
-          <p class="release-note">Prologue and Chapter One release at midnight.</p>
-        </div>
-
-        <div class="countdown-state" data-countdown-state>
-          <div class="countdown-grid" aria-live="polite">
-            <span>
-              <strong data-countdown-days>--</strong>
-              <small>Days</small>
-            </span>
-            <span>
-              <strong data-countdown-hours>--</strong>
-              <small>Hours</small>
-            </span>
-            <span>
-              <strong data-countdown-minutes>--</strong>
-              <small>Minutes</small>
-            </span>
-            <span>
-              <strong data-countdown-seconds>--</strong>
-              <small>Seconds</small>
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section class="current-release" aria-labelledby="current-release-title" hidden data-after-release>
+      <section class="current-release" aria-labelledby="site-title">
         <figure class="cover-wrap">
           <img
             class="cover"
@@ -154,10 +80,11 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
 
         <div class="current-release-copy">
           <p class="kicker">Current Release</p>
-          <h1 class="title" id="current-release-title">{site.title}</h1>
+          <h1 class="title" id="site-title">{site.title}</h1>
           <p class="author">Prologue + Chapter One</p>
           <p class="release-note">
-            The newest Saltine Reborn release is available now for invited readers.
+            Begin reading The Saltine Reborn with the Prologue and Chapter One.
+            New chapters will be released as they are completed.
           </p>
           <div class="release-actions current-release-actions">
             <a class="archive-button" href={release.prologueHref} target="_blank" rel="noopener">
@@ -179,14 +106,9 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
         </div>
       </section>
 
-      <section class="previous-releases" hidden data-after-release>
-        <p class="kicker">Previous Releases</p>
-        <p>No previous chapters yet.</p>
-      </section>
-
       <footer class="footer">
         <span>{site.publisher}</span>
-        <span class="footer-line">Fiction from the threshold</span>
+        <span class="footer-line">The Saltine Reading Room</span>
       </footer>
     </main>
   </body>
