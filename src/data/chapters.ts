@@ -16,6 +16,16 @@ export const chapters = [
     description:
       "The story continues with the first full chapter of The Saltine Reborn.",
     pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf"
+  },
+  {
+    slug: "chapter-2",
+    sequence: "Chapter Two",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Two",
+    description:
+      "The next released chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-2.pdf",
+    releaseAt: "2026-06-26T19:00:00-04:00"
   }
 ];
 
