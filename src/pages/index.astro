@@ -13,8 +13,8 @@ const site = {
 };
 
 const release = {
-  prologueHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf",
-  chapterOneHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
+  prologueHref: "/chapters/prologue/",
+  chapterOneHref: "/chapters/chapter-1/",
   saltinesHref: "/books/The-Saltines.pdf",
   ritzHref: "/books/The-Ritz-Strike-Back.pdf"
 };
@@ -87,10 +87,10 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
             New chapters will be released as they are completed.
           </p>
           <div class="release-actions current-release-actions">
-            <a class="archive-button" href={release.prologueHref} target="_blank" rel="noopener">
+            <a class="archive-button" href={release.prologueHref}>
               Read Prologue
             </a>
-            <a class="archive-button" href={release.chapterOneHref} target="_blank" rel="noopener">
+            <a class="archive-button" href={release.chapterOneHref}>
               Read Chapter One
             </a>
           </div>

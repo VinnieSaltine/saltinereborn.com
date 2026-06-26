@@ -50,9 +50,9 @@ const chapterOneRelease = {
   title: "The Saltine Reborn",
   label: "The Saltine Reborn Release Countdown",
   releaseAt: "2026-06-26T00:00:00-04:00",
-  chapterHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
+  chapterHref: "/chapters/chapter-1/",
   chapterFilePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
-  prologueHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf",
+  prologueHref: "/chapters/prologue/",
   prologueFilePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf"
 };
 
@@ -127,7 +127,7 @@ const prologueSize = formatFileSize(chapterOneRelease.prologueFilePath);
           <span>{site.publisher}</span>
         </div>
         <nav class="site-nav" aria-label="Primary">
-          <a href="/">Teaser</a>
+          <a href="/">Reading Room</a>
           <a href="/library/" aria-current="page">Library</a>
         </nav>
       </header>
@@ -177,8 +177,6 @@ const prologueSize = formatFileSize(chapterOneRelease.prologueFilePath);
           <a
             class="archive-button"
             href={chapterOneRelease.prologueHref}
-            target="_blank"
-            rel="noopener"
             hidden
             data-release-link
           >
@@ -188,8 +186,6 @@ const prologueSize = formatFileSize(chapterOneRelease.prologueFilePath);
           <a
             class="archive-button chapter-one-link"
             href={chapterOneRelease.chapterHref}
-            target="_blank"
-            rel="noopener"
             hidden
             data-release-link
           >
