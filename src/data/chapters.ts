@@ -25,7 +25,19 @@ export const chapters = [
     description:
       "The next released chapter in The Saltine Reborn reading room.",
     pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-2.pdf",
-    releaseAt: "2026-06-26T19:00:00-04:00"
+    releaseAt: "2026-06-26T19:00:00-04:00",
+    releaseMessage: "Chapter Two opens at 7:00 PM Eastern."
+  },
+  {
+    slug: "chapter-3",
+    sequence: "Chapter Three",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Three",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-3.pdf",
+    releaseAt: "2026-06-27T19:00:00-04:00",
+    releaseMessage: "Chapter Three opens at 7:00 PM Eastern tonight."
   }
 ];
 
