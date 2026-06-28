@@ -19,6 +19,8 @@ const release = {
   chapterTwoReleaseAt: "2026-06-26T19:00:00-04:00",
   chapterThreeHref: "/chapters/chapter-3/",
   chapterThreeReleaseAt: "2026-06-27T19:00:00-04:00",
+  chapterFourHref: "/chapters/chapter-4/",
+  chapterFourReleaseAt: "2026-06-28T14:00:00-04:00",
   saltinesHref: "/books/The-Saltines.pdf",
   ritzHref: "/books/The-Ritz-Strike-Back.pdf"
 };
@@ -155,6 +157,38 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
             <div class="release-actions current-release-actions">
               <a class="archive-button" href={release.chapterThreeHref} hidden data-release-link>
                 Read Chapter Three
+              </a>
+            </div>
+          </div>
+          <div
+            class="chapter-release-gate homepage-release-gate"
+            data-release-at={release.chapterFourReleaseAt}
+            aria-live="polite"
+          >
+            <div class="countdown-state compact-countdown" data-countdown-state>
+              <p class="release-note">Chapter Four opens at 2:00 PM Eastern today.</p>
+              <div class="countdown-grid">
+                <span>
+                  <strong data-countdown-days>--</strong>
+                  <small>Days</small>
+                </span>
+                <span>
+                  <strong data-countdown-hours>--</strong>
+                  <small>Hours</small>
+                </span>
+                <span>
+                  <strong data-countdown-minutes>--</strong>
+                  <small>Minutes</small>
+                </span>
+                <span>
+                  <strong data-countdown-seconds>--</strong>
+                  <small>Seconds</small>
+                </span>
+              </div>
+            </div>
+            <div class="release-actions current-release-actions">
+              <a class="archive-button" href={release.chapterFourHref} hidden data-release-link>
+                Read Chapter Four
               </a>
             </div>
           </div>
