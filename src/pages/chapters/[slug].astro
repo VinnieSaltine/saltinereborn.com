@@ -46,7 +46,6 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
-    {chapter.releaseAt && <script src="/chapter-countdown.js" defer></script>}
   </head>
   <body>
     <main class="page-shell chapter-shell" aria-labelledby="chapter-title">
@@ -85,57 +84,12 @@ const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
           <h1 class="chapter-title" id="chapter-title">{chapter.title}</h1>
           <p class="author">{chapter.releaseLabel}</p>
           <p class="release-note">{chapter.description}</p>
-          {
-            chapter.releaseAt ? (
-              <div
-                class="chapter-release-gate"
-                data-release-at={chapter.releaseAt}
-                aria-live="polite"
-              >
-                <div class="countdown-state compact-countdown" data-countdown-state>
-                  <p class="release-note">{chapter.releaseMessage}</p>
-                  <div class="countdown-grid">
-                    <span>
-                      <strong data-countdown-days>--</strong>
-                      <small>Days</small>
-                    </span>
-                    <span>
-                      <strong data-countdown-hours>--</strong>
-                      <small>Hours</small>
-                    </span>
-                    <span>
-                      <strong data-countdown-minutes>--</strong>
-                      <small>Minutes</small>
-                    </span>
-                    <span>
-                      <strong data-countdown-seconds>--</strong>
-                      <small>Seconds</small>
-                    </span>
-                  </div>
-                </div>
-                <div class="release-actions chapter-actions">
-                  <a
-                    class="archive-button"
-                    href={chapter.pdfHref}
-                    target="_blank"
-                    rel="noopener"
-                    hidden
-                    data-release-link
-                  >
-                    Open PDF
-                  </a>
-                  <a class="archive-button" href="/library/">Library</a>
-                </div>
-              </div>
-            ) : (
-              <div class="release-actions chapter-actions">
-                <a class="archive-button" href={chapter.pdfHref} target="_blank" rel="noopener">
-                  Open PDF
-                </a>
-                <a class="archive-button" href="/library/">Library</a>
-              </div>
-            )
-          }
+          <div class="release-actions chapter-actions">
+            <a class="archive-button" href={chapter.pdfHref} target="_blank" rel="noopener">
+              Open PDF
+            </a>
+            <a class="archive-button" href="/library/">Library</a>
+          </div>
         </div>
       </article>
 

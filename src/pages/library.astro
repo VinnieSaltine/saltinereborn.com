@@ -1,6 +1,7 @@
 ---
 import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { chapters } from "../data/chapters";
 import "../styles/global.css";
 
 const site = {
@@ -40,45 +41,11 @@ const archiveItems = [
     description:
       "Twenty years after the bonfire, the story continues across Rome, memory, and the shadow of a sacrifice that may not have held.",
     status: "In Progress",
-    progressLabel: "Chapter One",
-    progressDetail: "Coming Soon",
-    progressValue: 18
+    progressLabel: "Chapter Five",
+    progressDetail: "Available Now",
+    progressValue: 50
   }
 ];
-
-const chapterOneRelease = {
-  title: "The Saltine Reborn",
-  label: "The Saltine Reborn Release Countdown",
-  releaseAt: "2026-06-26T00:00:00-04:00",
-  chapterHref: "/chapters/chapter-1/",
-  chapterFilePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-1.pdf",
-  prologueHref: "/chapters/prologue/",
-  prologueFilePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Prologue.pdf"
-};
-
-const chapterTwoRelease = {
-  title: "The Saltine Reborn",
-  label: "Chapter Two Release Countdown",
-  releaseAt: "2026-06-26T19:00:00-04:00",
-  href: "/chapters/chapter-2/",
-  filePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-2.pdf"
-};
-
-const chapterThreeRelease = {
-  title: "The Saltine Reborn",
-  label: "Chapter Three Release Countdown",
-  releaseAt: "2026-06-27T19:00:00-04:00",
-  href: "/chapters/chapter-3/",
-  filePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-3.pdf"
-};
-
-const chapterFourRelease = {
-  title: "The Saltine Reborn",
-  label: "Chapter Four Release Countdown",
-  releaseAt: "2026-06-28T14:00:00-04:00",
-  href: "/chapters/chapter-4/",
-  filePath: "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-4.pdf"
-};
 
 const futureCollections = [
   "Side Stories",
@@ -107,11 +74,11 @@ function formatFileSize(filePath: string) {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const socialImageUrl = new URL(site.socialImage, Astro.site).toString();
-const chapterOneSize = formatFileSize(chapterOneRelease.chapterFilePath);
-const prologueSize = formatFileSize(chapterOneRelease.prologueFilePath);
-const chapterTwoSize = formatFileSize(chapterTwoRelease.filePath);
-const chapterThreeSize = formatFileSize(chapterThreeRelease.filePath);
-const chapterFourSize = formatFileSize(chapterFourRelease.filePath);
+const chapterItems = chapters.map((chapter) => ({
+  label: `Read ${chapter.releaseLabel}`,
+  href: `/chapters/${chapter.slug}/`,
+  fileSize: formatFileSize(`public${chapter.pdfHref}`)
+}));
 ---
 
 <!doctype html>
@@ -136,7 +103,6 @@ const chapterFourSize = formatFileSize(chapterFourRelease.filePath);
     <meta name="twitter:description" content={site.description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <script src="/access-gate.js" defer></script>
-    <script src="/chapter-countdown.js" defer></script>
   </head>
   <body>
     <main class="page-shell archive-shell" aria-labelledby="library-title">
@@ -168,192 +134,20 @@ const chapterFourSize = formatFileSize(chapterFourRelease.filePath);
         </p>
       </section>
 
-      <section
-        class="release-countdown"
-        aria-labelledby="chapter-countdown-title"
-        data-release-at={chapterOneRelease.releaseAt}
-      >
+      <section class="release-countdown" aria-labelledby="released-chapters-title">
         <div>
-          <p class="kicker">{chapterOneRelease.title}</p>
-          <h2 id="chapter-countdown-title">{chapterOneRelease.label}</h2>
-          <p class="release-note">Prologue and Chapter One release at midnight.</p>
-        </div>
-
-        <div class="countdown-state" data-countdown-state>
-          <div class="countdown-grid" aria-live="polite">
-            <span>
-              <strong data-countdown-days>--</strong>
-              <small>Days</small>
-            </span>
-            <span>
-              <strong data-countdown-hours>--</strong>
-              <small>Hours</small>
-            </span>
-            <span>
-              <strong data-countdown-minutes>--</strong>
-              <small>Minutes</small>
-            </span>
-            <span>
-              <strong data-countdown-seconds>--</strong>
-              <small>Seconds</small>
-            </span>
-          </div>
+          <p class="kicker">The Saltine Reborn</p>
+          <h2 id="released-chapters-title">Released Chapters</h2>
+          <p class="release-note">The Reading Room is open. New chapters will be added here as they arrive.</p>
         </div>
 
         <div class="release-actions">
-          <a
-            class="archive-button"
-            href={chapterOneRelease.prologueHref}
-            hidden
-            data-release-link
-          >
-            Read Prologue
-            <span class="button-meta">PDF{prologueSize ? ` · ${prologueSize}` : ""}</span>
-          </a>
-          <a
-            class="archive-button chapter-one-link"
-            href={chapterOneRelease.chapterHref}
-            hidden
-            data-release-link
-          >
-            Read Chapter One
-            <span class="button-meta">PDF{chapterOneSize ? ` · ${chapterOneSize}` : ""}</span>
-          </a>
-        </div>
-      </section>
-
-      <section
-        class="release-countdown"
-        aria-labelledby="chapter-two-countdown-title"
-        data-release-at={chapterTwoRelease.releaseAt}
-      >
-        <div>
-          <p class="kicker">{chapterTwoRelease.title}</p>
-          <h2 id="chapter-two-countdown-title">{chapterTwoRelease.label}</h2>
-          <p class="release-note">Chapter Two opens at 7:00 PM Eastern tonight.</p>
-        </div>
-
-        <div class="countdown-state" data-countdown-state>
-          <div class="countdown-grid" aria-live="polite">
-            <span>
-              <strong data-countdown-days>--</strong>
-              <small>Days</small>
-            </span>
-            <span>
-              <strong data-countdown-hours>--</strong>
-              <small>Hours</small>
-            </span>
-            <span>
-              <strong data-countdown-minutes>--</strong>
-              <small>Minutes</small>
-            </span>
-            <span>
-              <strong data-countdown-seconds>--</strong>
-              <small>Seconds</small>
-            </span>
-          </div>
-        </div>
-
-        <div class="release-actions">
-          <a
-            class="archive-button"
-            href={chapterTwoRelease.href}
-            hidden
-            data-release-link
-          >
-            Read Chapter Two
-            <span class="button-meta">PDF{chapterTwoSize ? ` · ${chapterTwoSize}` : ""}</span>
-          </a>
-        </div>
-      </section>
-
-      <section
-        class="release-countdown"
-        aria-labelledby="chapter-three-countdown-title"
-        data-release-at={chapterThreeRelease.releaseAt}
-      >
-        <div>
-          <p class="kicker">{chapterThreeRelease.title}</p>
-          <h2 id="chapter-three-countdown-title">{chapterThreeRelease.label}</h2>
-          <p class="release-note">Chapter Three opens at 7:00 PM Eastern tonight.</p>
-        </div>
-
-        <div class="countdown-state" data-countdown-state>
-          <div class="countdown-grid" aria-live="polite">
-            <span>
-              <strong data-countdown-days>--</strong>
-              <small>Days</small>
-            </span>
-            <span>
-              <strong data-countdown-hours>--</strong>
-              <small>Hours</small>
-            </span>
-            <span>
-              <strong data-countdown-minutes>--</strong>
-              <small>Minutes</small>
-            </span>
-            <span>
-              <strong data-countdown-seconds>--</strong>
-              <small>Seconds</small>
-            </span>
-          </div>
-        </div>
-
-        <div class="release-actions">
-          <a
-            class="archive-button"
-            href={chapterThreeRelease.href}
-            hidden
-            data-release-link
-          >
-            Read Chapter Three
-            <span class="button-meta">PDF{chapterThreeSize ? ` · ${chapterThreeSize}` : ""}</span>
-          </a>
-        </div>
-      </section>
-
-      <section
-        class="release-countdown"
-        aria-labelledby="chapter-four-countdown-title"
-        data-release-at={chapterFourRelease.releaseAt}
-      >
-        <div>
-          <p class="kicker">{chapterFourRelease.title}</p>
-          <h2 id="chapter-four-countdown-title">{chapterFourRelease.label}</h2>
-          <p class="release-note">Chapter Four opens at 2:00 PM Eastern today.</p>
-        </div>
-
-        <div class="countdown-state" data-countdown-state>
-          <div class="countdown-grid" aria-live="polite">
-            <span>
-              <strong data-countdown-days>--</strong>
-              <small>Days</small>
-            </span>
-            <span>
-              <strong data-countdown-hours>--</strong>
-              <small>Hours</small>
-            </span>
-            <span>
-              <strong data-countdown-minutes>--</strong>
-              <small>Minutes</small>
-            </span>
-            <span>
-              <strong data-countdown-seconds>--</strong>
-              <small>Seconds</small>
-            </span>
-          </div>
-        </div>
-
-        <div class="release-actions">
-          <a
-            class="archive-button"
-            href={chapterFourRelease.href}
-            hidden
-            data-release-link
-          >
-            Read Chapter Four
-            <span class="button-meta">PDF{chapterFourSize ? ` · ${chapterFourSize}` : ""}</span>
-          </a>
+          {chapterItems.map((chapter) => (
+            <a class="archive-button" href={chapter.href}>
+              {chapter.label}
+              <span class="button-meta">PDF{chapter.fileSize ? ` · ${chapter.fileSize}` : ""}</span>
+            </a>
+          ))}
         </div>
       </section>
 
