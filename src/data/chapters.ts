@@ -97,6 +97,24 @@ export const chapters = [
     description:
       "The newest chapter in The Saltine Reborn reading room.",
     pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-10.pdf"
+  },
+  {
+    slug: "chapter-11",
+    sequence: "Chapter Eleven",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Eleven",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-11.pdf"
+  },
+  {
+    slug: "chapter-12",
+    sequence: "Chapter Twelve",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Twelve",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-12.pdf"
   }
 ];
 
