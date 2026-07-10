@@ -160,6 +160,15 @@ export const chapters = [
     description:
       "The newest chapter in The Saltine Reborn reading room.",
     pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-17.pdf"
+  },
+  {
+    slug: "chapter-18",
+    sequence: "Chapter Eighteen",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Eighteen",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-18.pdf"
   }
 ];
 
