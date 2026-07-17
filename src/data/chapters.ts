@@ -196,6 +196,33 @@ export const chapters = [
     description:
       "The newest chapter in The Saltine Reborn reading room.",
     pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-21.pdf"
+  },
+  {
+    slug: "chapter-22",
+    sequence: "Chapter Twenty-Two",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Twenty-Two",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-22.pdf"
+  },
+  {
+    slug: "chapter-23",
+    sequence: "Chapter Twenty-Three",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Twenty-Three",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-23.pdf"
+  },
+  {
+    slug: "chapter-24",
+    sequence: "Chapter Twenty-Four",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Twenty-Four",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-24.pdf"
   }
 ];
 
