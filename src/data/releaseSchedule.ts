@@ -238,5 +238,37 @@ export const releaseSchedule = [
     releaseDate: "2026-08-01",
     releaseTime: "08:00:00",
     releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 40,
+    slug: "chapter-40",
+    sequence: "Chapter Forty",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Forty",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-40.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-40.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-40.pdf",
+    releaseDate: "2026-08-02",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 41,
+    slug: "chapter-41",
+    sequence: "Chapter Forty-One",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Forty-One",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-41.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-41.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-41.pdf",
+    releaseDate: "2026-08-03",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
   }
 ];
