@@ -190,5 +190,53 @@ export const releaseSchedule = [
     releaseDate: "2026-07-29",
     releaseTime: "08:00:00",
     releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 37,
+    slug: "chapter-37",
+    sequence: "Chapter Thirty-Seven",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Thirty-Seven",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-37.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-37.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-37.pdf",
+    releaseDate: "2026-07-30",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 38,
+    slug: "chapter-38",
+    sequence: "Chapter Thirty-Eight",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Thirty-Eight",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-38.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-38.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-38.pdf",
+    releaseDate: "2026-07-31",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 39,
+    slug: "chapter-39",
+    sequence: "Chapter Thirty-Nine",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Thirty-Nine",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-39.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-39.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-39.pdf",
+    releaseDate: "2026-08-01",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
   }
 ];
