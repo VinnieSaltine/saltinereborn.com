@@ -270,5 +270,69 @@ export const releaseSchedule = [
     releaseDate: "2026-08-03",
     releaseTime: "08:00:00",
     releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 42,
+    slug: "chapter-42",
+    sequence: "Chapter Forty-Two",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Forty-Two",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-42.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-42.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-42.pdf",
+    releaseDate: "2026-08-04",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 43,
+    slug: "chapter-43",
+    sequence: "Chapter Forty-Three",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Forty-Three",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-43.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-43.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-43.pdf",
+    releaseDate: "2026-08-05",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 44,
+    slug: "chapter-44",
+    sequence: "Chapter Forty-Four",
+    title: "The Saltine Reborn",
+    releaseLabel: "Chapter Forty-Four",
+    description:
+      "The newest chapter in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Chapter-44.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-44.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Chapter-44.pdf",
+    releaseDate: "2026-08-06",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
+  },
+  {
+    chapterNumber: 45,
+    slug: "epilogue",
+    sequence: "Epilogue",
+    title: "The Saltine Reborn",
+    releaseLabel: "Epilogue",
+    description:
+      "The closing piece in The Saltine Reborn reading room.",
+    sourcePdfFilename: "The-Saltine-Reborn-Epilogue.pdf",
+    publicDestinationPath:
+      "public/books/The-Saltine-Reborn/The-Saltine-Reborn-Epilogue.pdf",
+    pdfHref: "/books/The-Saltine-Reborn/The-Saltine-Reborn-Epilogue.pdf",
+    releaseDate: "2026-08-07",
+    releaseTime: "08:00:00",
+    releaseTimeZone: "America/New_York"
   }
 ];
